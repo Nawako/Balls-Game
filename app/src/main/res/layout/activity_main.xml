@@ -4,8 +4,17 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <com.kilomobi.ballsgame.Terrain
+
+    <!--
+    Dans le DESIGN allez tout en bas dans CUSTOMVIEW puis drag & drop et ajout du TERRAIN
+    -->
+
+    <view
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="match_parent"
+        class="com.kilomobi.ballsgame.Terrain"
+        android:id="@+id/view"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"/>
 
 </RelativeLayout>

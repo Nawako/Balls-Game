@@ -41,7 +41,6 @@ public class Balle {
                 p.setColor(Color.BLACK);
                 break;
         }
-        p.setColor(Color.BLUE);
         c.drawCircle(getX().floatValue(),getY().floatValue(),getRayon().floatValue(),p);
     }
 

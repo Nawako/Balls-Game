@@ -30,6 +30,7 @@ public class Terrain extends View {
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
 
+        init();
         // Ajout d'une boucle pour dessiner les balles
         for (int i = 0; i < lesBalles.size(); i++) {
             lesBalles.get(i).draw(canvas);
@@ -43,10 +44,9 @@ public class Terrain extends View {
         //Création de 4 balles
         // ASTUCE : CTRL + D sur la ligne pour la dupliquer automatiquement en bas
         lesBalles.add(new Balle(100.0,100.0, Balle.TypeBalle.Bleu));
-        lesBalles.add(new Balle(100.0,100.0, Balle.TypeBalle.Vert));
-        lesBalles.add(new Balle(100.0,100.0, Balle.TypeBalle.Rouge));
-        lesBalles.add(new Balle(100.0,100.0, Balle.TypeBalle.Noir));
-
+        lesBalles.add(new Balle(200.0,100.0, Balle.TypeBalle.Vert));
+        lesBalles.add(new Balle(100.0,200.0, Balle.TypeBalle.Rouge));
+        lesBalles.add(new Balle(200.0,200.0, Balle.TypeBalle.Noir));
     }
 
     private void mouvement() {
