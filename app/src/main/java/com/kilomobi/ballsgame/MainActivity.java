@@ -1,17 +1,60 @@
 package com.kilomobi.ballsgame;
 
+import android.content.res.Resources;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import java.util.Timer;
+import java.util.TimerTask;
+
 
 public class MainActivity extends ActionBarActivity {
+
+    Timer timer;
+    TimerTask timerTask;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        Terrain t = (Terrain)this.findViewById(R.id.view);
+        int w = getResources().getDisplayMetrics().widthPixels;
+        int h = getResources().getDisplayMetrics().heightPixels;
+
+        t.init();
+
+        t.genereBalle(15, w, h, Balle.TypeBalle.Rouge);
+        t.genereBalle(15, w, h, Balle.TypeBalle.Bleu);
+        t.genereBalle(15, w, h, Balle.TypeBalle.Vert);
+        t.genereBalle(15, w, h, Balle.TypeBalle.Noir);
+
+        startTimer();
+    }
+
+    void startTimer()
+    {
+        //Bricollage à connaître - astuce de prof
+        final MainActivity self = this;
+
+        timer = new Timer();
+        timerTask = new TimerTask() {
+            @Override
+            public void run() {
+                final Terrain t = (Terrain)self.findViewById(R.id.view);
+                t.mouvementDeToutesLesBalles();
+
+                runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+                        t.invalidate();
+                    }
+                });
+
+            }
+        };
+        timer.schedule(timerTask, 500, 10);
     }
 
 

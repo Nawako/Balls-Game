@@ -88,7 +88,23 @@ public class Balle {
         return type;
     }
 
-    public enum TypeBalle {
+    void mouvement(Terrain terrain) {
+        // Rebord contre les bords de la fenêtre
+        if (getX() - getRayon() < 0)
+            setVx( -getVx()); // bord gauche
+        if (getX() - getRayon() > terrain.getWidth())
+            setVx( -getVx()); // bord droite
+        if (getY() - getRayon() < 0)
+            setVy( -getVy()); // bord haut
+        if (getY() - getRayon() >terrain.getHeight())
+            setVy( -getVy()); // bord bas
+
+        // Cinématique du mouvement
+        setX(getX() + getVx() );
+        setY(getY() + getVy() );
+    }
+
+    public static enum TypeBalle {
         Bleu,
         Rouge,
         Vert,
