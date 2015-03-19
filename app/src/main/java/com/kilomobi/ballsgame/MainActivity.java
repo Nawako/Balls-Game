@@ -20,15 +20,16 @@ public class MainActivity extends ActionBarActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         Terrain t = (Terrain)this.findViewById(R.id.view);
+
         int w = getResources().getDisplayMetrics().widthPixels;
         int h = getResources().getDisplayMetrics().heightPixels;
 
         t.init();
 
-        t.genereBalle(15, w, h, Balle.TypeBalle.Rouge);
-        t.genereBalle(15, w, h, Balle.TypeBalle.Bleu);
+        t.genereBalle(20, w, h, Balle.TypeBalle.Rouge);
+        t.genereBalle(10, w, h, Balle.TypeBalle.Bleu);
         t.genereBalle(15, w, h, Balle.TypeBalle.Vert);
-        t.genereBalle(15, w, h, Balle.TypeBalle.Noir);
+        t.genereBalle(1, w, h, Balle.TypeBalle.Noir);
 
         startTimer();
     }

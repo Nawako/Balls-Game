@@ -6,6 +6,7 @@ import android.util.AttributeSet;
 import android.view.View;
 
 import java.util.ArrayList;
+import java.util.Random;
 
 /**
  * Created by Fabrice on 19/03/2015.
@@ -61,8 +62,18 @@ public class Terrain extends View {
         for (int i=0; i<nb; i++) {
             Double x = Math.random() * width;
             Double y = Math.random() * height;
+        //    genereColor(type);
             lesBalles.add(new Balle(x,y,type));
+
         }
     }
+/*
+    int genereColor(Balle.TypeBalle type) {
+        int valeurMin = 0;
+        int valeurMax = 3;
+        Random r = new Random();
+        int valeur = valeurMin + r.nextInt(valeurMax - valeurMin);
+        return valeur;
+    }*/
 
 }

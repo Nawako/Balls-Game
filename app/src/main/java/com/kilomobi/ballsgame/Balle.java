@@ -99,7 +99,7 @@ public class Balle {
         if (getY() - getRayon() >terrain.getHeight())
             setVy( -getVy()); // bord bas
 
-        // Cinématique du mouvement
+        // Cinétique du mouvement
         setX(getX() + getVx() );
         setY(getY() + getVy() );
     }
