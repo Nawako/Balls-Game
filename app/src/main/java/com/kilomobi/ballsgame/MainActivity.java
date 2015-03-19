@@ -26,10 +26,10 @@ public class MainActivity extends ActionBarActivity {
 
         t.init();
 
-        t.genereBalle(200, w, h, Balle.TypeBalle.Rouge);
-        t.genereBalle(200, w, h, Balle.TypeBalle.Bleu);
-        t.genereBalle(200, w, h, Balle.TypeBalle.Vert);
-        t.genereBalle(200, w, h, Balle.TypeBalle.Noir);
+        t.genereBalle(5, w, h, Balle.TypeBalle.Rouge);
+        t.genereBalle(5, w, h, Balle.TypeBalle.Bleu);
+        t.genereBalle(5, w, h, Balle.TypeBalle.Vert);
+        t.genereBalle(5, w, h, Balle.TypeBalle.Noir);
 
         startTimer();
     }
@@ -39,6 +39,8 @@ public class MainActivity extends ActionBarActivity {
         //Bricollage à connaître - astuce de prof
         final MainActivity self = this;
 
+        
+
         timer = new Timer();
         timerTask = new TimerTask() {
 
@@ -47,7 +49,7 @@ public class MainActivity extends ActionBarActivity {
             public void run() {
                 final Terrain t = (Terrain)self.findViewById(R.id.view);
                 t.mouvementDeToutesLesBalles();
-
+                t.traiteLesCollisions();
                 runOnUiThread(new Runnable() {
 
                     // Thread de l'interface utilisateur

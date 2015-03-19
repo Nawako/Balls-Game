@@ -37,9 +37,19 @@ public class Terrain extends View {
         }
     }
 
+
+
     void mouvementDeToutesLesBalles() {
         for (int i=0; i<lesBalles.size(); i++) {
             lesBalles.get(i).mouvement(this);
+        }
+    }
+
+    void traiteLesCollisions() {
+        for (int i=0; i<lesBalles.size(); i++) {
+            Balle b = whoIsCollisioningWith(lesBalles.get(i));
+            if (b != null)
+                lesBalles.get(i).traiteCollision(b);
         }
     }
 

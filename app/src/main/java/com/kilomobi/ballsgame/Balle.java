@@ -134,6 +134,15 @@ public class Balle {
         return false;
     }
 
+    void traiteCollision (Balle b) {
+        this.setVx( -this.getVx());
+        this.setVy( -this.getVy());
+        if (this.getX() > b.getX() - b.getRayon() && this.getX() < b.getX() + b.getRayon())
+            this.setVx( -this.getVx());
+        if (this.getY() > b.getY() - b.getRayon() && this.getY() < b.getY() + b.getRayon())
+            this.setVy( -this.getVy());
+    }
+
     public static enum TypeBalle {
         Bleu,
         Rouge,
