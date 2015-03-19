@@ -12,6 +12,7 @@ import java.util.Random;
 public class Balle {
     private Double x, y, vx, vy, rayon;
     private TypeBalle type;
+    private Paint paint;
 
     // ALT + ENTREE pour avoir la génération du constructeur / getter / setter ou CODE -> Generate
 
@@ -22,26 +23,27 @@ public class Balle {
         this.rayon = 20.0;
         this.vx = Math.random()*10.0-5.0;
         this.vy = Math.random()*10.0-5.0;
-    }
 
-    void draw (Canvas c){
-        Paint p = new Paint();
+        paint = new Paint();
         switch (getType())
         {
             case Bleu:
-                p.setColor(Color.BLUE);
+                paint.setColor(Color.BLUE);
                 break;
             case Rouge:
-                p.setColor(Color.RED);
+                paint.setColor(Color.RED);
                 break;
             case Vert:
-                p.setColor(Color.GREEN);
+                paint.setColor(Color.GREEN);
                 break;
             case Noir:
-                p.setColor(Color.BLACK);
+                paint.setColor(Color.BLACK);
                 break;
         }
-        c.drawCircle(getX().floatValue(),getY().floatValue(),getRayon().floatValue(),p);
+    }
+
+    void draw (Canvas c){
+        c.drawCircle(getX().floatValue(),getY().floatValue(),getRayon().floatValue(),paint);
     }
 
     public Double getX() {
