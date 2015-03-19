@@ -10,6 +10,12 @@ import java.util.Random;
  * Created by Fabrice on 19/03/2015.
  */
 public class Balle {
+
+    private static Paint paintRouge = null;
+    private static Paint paintVert = null;
+    private static Paint paintNoir = null;
+    private static Paint paintBleu = null;
+
     private Double x, y, vx, vy, rayon;
     private TypeBalle type;
     private Paint paint;
@@ -24,20 +30,32 @@ public class Balle {
         this.vx = Math.random()*10.0-5.0;
         this.vy = Math.random()*10.0-5.0;
 
+        if (paintBleu == null)
+        {
+            paintBleu = new Paint();
+            paintBleu.setColor(Color.BLUE);
+            paintRouge = new Paint();
+            paintRouge.setColor(Color.RED);
+            paintVert = new Paint();
+            paintVert.setColor(Color.GREEN);
+            paintNoir = new Paint();
+            paintNoir.setColor(Color.BLACK);
+        }
+
         paint = new Paint();
         switch (getType())
         {
             case Bleu:
-                paint.setColor(Color.BLUE);
+                paint = paintBleu;
                 break;
             case Rouge:
-                paint.setColor(Color.RED);
+                paint = paintRouge;
                 break;
             case Vert:
-                paint.setColor(Color.GREEN);
+                paint = paintVert;
                 break;
             case Noir:
-                paint.setColor(Color.BLACK);
+                paint = paintNoir;
                 break;
         }
     }

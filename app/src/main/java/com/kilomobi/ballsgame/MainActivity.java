@@ -26,10 +26,10 @@ public class MainActivity extends ActionBarActivity {
 
         t.init();
 
-        t.genereBalle(20, w, h, Balle.TypeBalle.Rouge);
-        t.genereBalle(10, w, h, Balle.TypeBalle.Bleu);
-        t.genereBalle(15, w, h, Balle.TypeBalle.Vert);
-        t.genereBalle(1, w, h, Balle.TypeBalle.Noir);
+        t.genereBalle(200, w, h, Balle.TypeBalle.Rouge);
+        t.genereBalle(200, w, h, Balle.TypeBalle.Bleu);
+        t.genereBalle(200, w, h, Balle.TypeBalle.Vert);
+        t.genereBalle(200, w, h, Balle.TypeBalle.Noir);
 
         startTimer();
     }
