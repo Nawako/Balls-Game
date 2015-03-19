@@ -47,6 +47,19 @@ public class Terrain extends View {
         lesBalles.add(new Balle(200.0,100.0, Balle.TypeBalle.Vert));
         lesBalles.add(new Balle(100.0,200.0, Balle.TypeBalle.Rouge));
         lesBalles.add(new Balle(200.0,200.0, Balle.TypeBalle.Noir));
+
+        genereBalle(15, Balle.TypeBalle.Rouge);
+        genereBalle(15, Balle.TypeBalle.Bleu);
+        genereBalle(15, Balle.TypeBalle.Vert);
+        genereBalle(15, Balle.TypeBalle.Noir);
+    }
+
+    public void genereBalle(int nb, Balle.TypeBalle type) {
+        for (int i=0; i<nb; i++) {
+            Double x = Math.random() * this.getWidth();
+            Double y = Math.random() * this.getHeight();
+            lesBalles.add(new Balle(x,y,type));
+        }
     }
 
     private void mouvement() {
