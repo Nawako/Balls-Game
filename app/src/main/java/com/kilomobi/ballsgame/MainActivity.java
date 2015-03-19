@@ -41,12 +41,16 @@ public class MainActivity extends ActionBarActivity {
 
         timer = new Timer();
         timerTask = new TimerTask() {
+
+            // Thread du Timer
             @Override
             public void run() {
                 final Terrain t = (Terrain)self.findViewById(R.id.view);
                 t.mouvementDeToutesLesBalles();
 
                 runOnUiThread(new Runnable() {
+
+                    // Thread de l'interface utilisateur
                     @Override
                     public void run() {
                         t.invalidate();

@@ -124,6 +124,16 @@ public class Balle {
         setY(getY() + getVy() );
     }
 
+    // Méthode qui permet de savoir si il y a collision
+    boolean isCollisioning (Balle b) {
+        Double dx = b.getX() - this.getX();
+        Double dy = b.getY() - this.getY();
+        Double d = Math.sqrt(dx*dx+dy*dy);
+        if (d < this.getRayon() + b.getRayon())
+            return true;
+        return false;
+    }
+
     public static enum TypeBalle {
         Bleu,
         Rouge,

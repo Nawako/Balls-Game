@@ -31,8 +31,6 @@ public class Terrain extends View {
     protected void onDraw
     (Canvas canvas) {
         super.onDraw(canvas);
-
-
         // Ajout d'une boucle pour dessiner les balles
         for (int i = 0; i < lesBalles.size(); i++) {
             lesBalles.get(i).draw(canvas);
@@ -43,7 +41,17 @@ public class Terrain extends View {
         for (int i=0; i<lesBalles.size(); i++) {
             lesBalles.get(i).mouvement(this);
         }
+    }
 
+    Balle whoIsCollisioningWith( Balle b ) {
+        for (int i=0; i<lesBalles.size(); i++) {
+            if (b != lesBalles.get(i)) {
+                if (lesBalles.get(i).isCollisioning(b))
+                    return lesBalles.get(i);
+            }
+            lesBalles.get(i).mouvement(this);
+        }
+        return null;
     }
 
     public void init() {
@@ -64,16 +72,6 @@ public class Terrain extends View {
             Double y = Math.random() * height;
         //    genereColor(type);
             lesBalles.add(new Balle(x,y,type));
-
         }
     }
-/*
-    int genereColor(Balle.TypeBalle type) {
-        int valeurMin = 0;
-        int valeurMax = 3;
-        Random r = new Random();
-        int valeur = valeurMin + r.nextInt(valeurMax - valeurMin);
-        return valeur;
-    }*/
-
 }
